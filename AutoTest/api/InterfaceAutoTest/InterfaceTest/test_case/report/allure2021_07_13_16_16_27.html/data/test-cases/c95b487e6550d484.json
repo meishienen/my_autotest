@@ -1,0 +1,104 @@
+{
+  "uid" : "c95b487e6550d484",
+  "name" : "test_all[TC002-GET-http://106.13.199.209:8080/futureloan/mvc/api/member/register-None-expect1-JSON-3]",
+  "fullName" : "cases_pytest_test.TestPyttest#test_all",
+  "historyId" : "ddc3704e582c1f3af90baa4cd57af540",
+  "time" : {
+    "start" : 1626164192216,
+    "stop" : 1626164192305,
+    "duration" : 89
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "get_request_20",
+    "time" : {
+      "start" : 1626164192064,
+      "stop" : 1626164192077,
+      "duration" : 13
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "afterStages" : [ {
+    "name" : "get_request_20::0",
+    "time" : {
+      "start" : 1626164193501,
+      "stop" : 1626164193501,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "cases_pytest_test"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPyttest"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-QM1JAUSG"
+  }, {
+    "name" : "thread",
+    "value" : "33752-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "cases_pytest_test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_type",
+    "value" : "'JSON'"
+  }, {
+    "name" : "expect",
+    "value" : "{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}"
+  }, {
+    "name" : "id",
+    "value" : "'TC002'"
+  }, {
+    "name" : "method",
+    "value" : "'GET'"
+  }, {
+    "name" : "precondition_id",
+    "value" : "None"
+  }, {
+    "name" : "row",
+    "value" : "3"
+  }, {
+    "name" : "url",
+    "value" : "'http://106.13.199.209:8080/futureloan/mvc/api/member/register'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "c95b487e6550d484.json",
+  "parameterValues" : [ "'JSON'", "{'status': 0, 'code': '20110', 'data': None, 'msg': '手机号码已被注册'}", "'TC002'", "'GET'", "None", "3", "'http://106.13.199.209:8080/futureloan/mvc/api/member/register'" ]
+}

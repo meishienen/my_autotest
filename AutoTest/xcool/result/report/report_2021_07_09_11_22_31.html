@@ -1,0 +1,3413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试报告</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--    页面样式-->
+    <style type="text/css">
+        /*标题样式*/
+        .title {
+            width: auto;
+            height: 60px;
+            text-align: center;
+            font: bolder 38px/60px "Microsoft YaHei UI";
+        }
+
+        /*汇总信息样式*/
+        .summary {
+            width: 90%;
+            position: absolute;
+            top: 120px;
+            margin-left: 5%;
+
+        }
+
+        .text-left {
+            font: bolder 20px/30px "Microsoft YaHei UI";
+        }
+
+        .left {
+            width: 50%;
+            float: left;
+
+        }
+
+        .right {
+            width: 50%;
+            float: right;
+
+        }
+
+        .desc {
+            float: left;
+            width: 100%;
+        }
+
+        .list-group-item span {
+            font: normal 16px/38px "Microsoft YaHei UI";
+            padding: 30px;
+
+        }
+
+        .list-group-item {
+            position: relative;
+            display: block;
+            padding: .4rem 1.25rem;
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, .125);
+        }
+
+        /* 执行信息样式   */
+        .test_info {
+            width: 90%;
+            position: absolute;
+            top: 900px;
+            margin-left: 5%;
+
+            color: #28a745 !important;
+        }
+
+        .table td, th {
+            border: solid 2px rgba(9, 122, 51, 0.11) !important;
+            padding: 0;
+            line-height: 40px;
+            text-align: center;
+
+        }
+
+
+        select {
+            border: 0;
+            padding: 0;
+            margin: 0;
+            height: 2em;
+            width: 8em;
+            margin-left: 2em;
+        }
+
+        option {
+            text-align: center;
+            height: 36px;
+            font: none 18px/36px "Microsoft YaHei UI";
+            color: #28a745 !important;
+        }
+
+        .test_log {
+            background: rgba(163, 171, 189, 0.15);
+            width: 100%;
+            height: 50px;
+            border-top: none;
+            border-bottom: none;
+            display: none;
+            text-align: left;
+        }
+
+        .test_log td {
+            text-align: left;
+            height: 30px;
+            margin: 0;
+            padding-left: 3em;
+            padding-right:3em;
+            font: none 18px/24px "Microsoft YaHei UI";
+            color: #9e141a;
+        }
+
+        pre {
+            margin: 0;
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /*    测试图表显示*/
+        .char {
+            width: 90%;
+            position: absolute;
+            top: 450px;
+            margin-left: 5%;
+            color: #28a745 !important;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<!--报告标题-->
+<div class="title text-success">
+    <div class="shadow-lg p-3 mb-5 bg-white rounded">xcool测试报告</div>
+</div>
+
+<!--汇总信息-->
+<div class="summary">
+    <p class="text-left text-success">测试结果汇总</p>
+    <div class="left">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <button type="button" class="btn btn-success">测试人员</button>
+                <span class="text-dark">刘业宇</span>
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-success">开始时间</button>
+                <span class="text-dark">2021-07-09 11:22:31</span>
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-success">执行时间</button>
+                <span class="text-dark">962.21 S</span>
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-success">用例总数</button>
+                <span class="text-dark">34</span>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="right">
+        <ul class="list-group">
+
+            <li class="list-group-item">
+                <button type="button" class="btn btn-success">成功用例</button>
+                <span class="text-success">17</span>
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-danger">失败用例</button>
+                <span class="text-warning">16</span>
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-warning">错误用例</button>
+                <span class="text-danger">1</span>
+            </li>
+            <li class="list-group-item">
+                <button type="button" class="btn btn-secondary">跳过用例</button>
+                <span class="text-secondary">0</span>
+            </li>
+        </ul>
+    </div>
+    <div class="desc">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <button type="button" class="btn btn-success">描述信息</button>
+                <span class="text-secondary">这是xcool的详细测试报告</span>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+
+<!--测试图表-->
+<div class="char">
+    <p class="text-left text-success">图表展示</p>
+    <div id="char2" style="width: 49%;height: 400px;float: left"></div>
+    <div id="char" style="width: 49%;height: 400px ;float: left"></div>
+</div>
+
+<!--详细信息-->
+<div class="test_info">
+
+    <p class="text-left text-success">详细信息</p>
+    <div class="table_data">
+
+        <table class="table">
+            <thead class="bg-success text-light">
+            <tr>
+                <th scope="col" style="width: 5%;padding: 0">编号</th>
+                <th scope="col" style="width: 20%;padding: 0">
+                    <span>测试类</span>
+                    <select id="testClass">
+                        <option>所有</option>
+                        
+                            <option>AdduserText</option>
+                        
+                            <option>LoginText</option>
+                        
+                            <option>LoginText</option>
+                        
+                    </select>
+
+                </th>
+
+                <th scope="col" style="width: 15%;padding: 0">测试方法</th>
+                <th scope="col" style="width: 20%;padding: 0">用例描述</th>
+                <th scope="col" style="width: 10%;padding: 0">执行时间</th>
+                <th scope="col" style="width: 20%;padding: 0">
+
+                    <span>执行结果</span>
+                    <select id="testResult">
+                        <option>所有</option>
+                        <option class="text-success">成功</option>
+                        <option class="text-danger">失败</option>
+                        <option class="text-warning">错误</option>
+                        <option class="text-info">跳过</option>
+                    </select>
+
+                </th>
+                <th scope="col" style="width: 10%;padding: 0">详细信息</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+                <tr>
+                    <td>1</td>
+                    <td class="AdduserText">AdduserText</td>
+                    <td>test_login_failed_00_18700000000</td>
+                    <td>这是注册失败的用例 [with username='18700000000', yanzheng='123456', pwd='liu123456', qiwang='手机号已被注册，请直接登录', xuhao='9']</td>
+                    <td>40.7s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+123456
+**************************************************分割线**************************************************
+test_login_failed_00_18700000000 (adduser_test.AdduserText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 40, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 43, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\adduser_test.py", line 58, in test_login_failed
+    realname=self.addusertext.failed_adduser()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 45, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[3]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\adduser_test.py", line 68, in test_login_failed
+    raise AssertionError('注册失败用例，第%s条出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 注册失败用例，第9条出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <td class="AdduserText">AdduserText</td>
+                    <td>test_login_failed_01_</td>
+                    <td>这是注册失败的用例 [with username='', yanzheng='123456', pwd='liu123456', qiwang='请输入手机号', xuhao='11']</td>
+                    <td>7.53s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+123456
+789
+**************************************************分割线**************************************************
+test_login_failed_01_ (adduser_test.AdduserText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <td class="AdduserText">AdduserText</td>
+                    <td>test_login_failed_02_18732287863</td>
+                    <td>这是注册失败的用例 [with username='18732287863', yanzheng='123', pwd='abc12345', qiwang='验证码无效', xuhao='12']</td>
+                    <td>18.0s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+123456
+789
+**************************************************分割线**************************************************
+test_login_failed_02_18732287863 (adduser_test.AdduserText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>4</td>
+                    <td class="AdduserText">AdduserText</td>
+                    <td>test_login_failed_03_18732287863</td>
+                    <td>这是注册失败的用例 [with username='18732287863', yanzheng='', pwd='abc12345', qiwang='请输入验证码', xuhao='15']</td>
+                    <td>18.0s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+123456
+789
+**************************************************分割线**************************************************
+test_login_failed_03_18732287863 (adduser_test.AdduserText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>5</td>
+                    <td class="AdduserText">AdduserText</td>
+                    <td>test_login_failed_04_18732287863</td>
+                    <td>这是注册失败的用例 [with username='18732287863', yanzheng='123', pwd='abc12345', qiwang='验证码无效', xuhao='16']</td>
+                    <td>17.8s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+123456
+789
+**************************************************分割线**************************************************
+test_login_failed_04_18732287863 (adduser_test.AdduserText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>6</td>
+                    <td class="AdduserText">AdduserText</td>
+                    <td>test_login_failed_05_18732287863</td>
+                    <td>这是注册失败的用例 [with username='18732287863', yanzheng='', pwd='abc12345', qiwang='请输入验证码', xuhao='17']</td>
+                    <td>17.9s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+123456
+789
+**************************************************分割线**************************************************
+test_login_failed_05_18732287863 (adduser_test.AdduserText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>7</td>
+                    <td class="AdduserText">AdduserText</td>
+                    <td>test_login_failed_06_18766666666</td>
+                    <td>这是注册失败的用例 [with username='18766666666', yanzheng='123456', pwd='12345678', qiwang='密码须由8-15位字母与数字组成', xuhao='18']</td>
+                    <td>28.5s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+123456
+789
+**************************************************分割线**************************************************
+test_login_failed_06_18766666666 (adduser_test.AdduserText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>8</td>
+                    <td class="AdduserText">AdduserText</td>
+                    <td>test_login_failed_07_18711111111</td>
+                    <td>这是注册失败的用例 [with username='18711111111', yanzheng='123456', pwd='abcdefgh', qiwang='密码须由8-15位字母与数字组成', xuhao='19']</td>
+                    <td>39.1s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+123456
+**************************************************分割线**************************************************
+test_login_failed_07_18711111111 (adduser_test.AdduserText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 40, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 43, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\adduser_test.py", line 58, in test_login_failed
+    realname=self.addusertext.failed_adduser()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 45, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[3]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\adduser_test.py", line 68, in test_login_failed
+    raise AssertionError('注册失败用例，第%s条出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 注册失败用例，第19条出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>9</td>
+                    <td class="AdduserText">AdduserText</td>
+                    <td>test_login_failed_08_18722222222</td>
+                    <td>这是注册失败的用例 [with username='18722222222', yanzheng='123456', pwd='ABCDEFGHIJ', qiwang='密码须由8-15位字母与数字组成', xuhao='20']</td>
+                    <td>39.7s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+123456
+**************************************************分割线**************************************************
+test_login_failed_08_18722222222 (adduser_test.AdduserText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 40, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 43, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\adduser_test.py", line 58, in test_login_failed
+    realname=self.addusertext.failed_adduser()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 45, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[3]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\adduser_test.py", line 68, in test_login_failed
+    raise AssertionError('注册失败用例，第%s条出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 注册失败用例，第20条出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>10</td>
+                    <td class="AdduserText">AdduserText</td>
+                    <td>test_login_failed_09_18733333333</td>
+                    <td>这是注册失败的用例 [with username='18733333333', yanzheng='123456', pwd='ABCDEfghij', qiwang='密码须由8-15位字母与数字组成', xuhao='21']</td>
+                    <td>39.2s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+123456
+**************************************************分割线**************************************************
+test_login_failed_09_18733333333 (adduser_test.AdduserText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 40, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 43, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\adduser_test.py", line 58, in test_login_failed
+    realname=self.addusertext.failed_adduser()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 45, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[3]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\adduser_test.py", line 68, in test_login_failed
+    raise AssertionError('注册失败用例，第%s条出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 注册失败用例，第21条出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>11</td>
+                    <td class="AdduserText">AdduserText</td>
+                    <td>test_login_failed_10_18744444444</td>
+                    <td>这是注册失败的用例 [with username='18744444444', yanzheng='123456', pwd='abc1234', qiwang='密码须由8-15位字母与数字组成', xuhao='22']</td>
+                    <td>28.4s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+123456
+789
+**************************************************分割线**************************************************
+test_login_failed_10_18744444444 (adduser_test.AdduserText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>12</td>
+                    <td class="AdduserText">AdduserText</td>
+                    <td>test_login_failed_11_18755555555</td>
+                    <td>这是注册失败的用例 [with username='18755555555', yanzheng='123456', pwd='abcdefgh12345678', qiwang='密码须由8-15位字母与数字组成', xuhao='23']</td>
+                    <td>39.2s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+123456
+**************************************************分割线**************************************************
+test_login_failed_11_18755555555 (adduser_test.AdduserText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 40, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 43, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\adduser_test.py", line 58, in test_login_failed
+    realname=self.addusertext.failed_adduser()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 45, in failed_adduser
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[3]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\adduser_test.py", line 68, in test_login_failed
+    raise AssertionError('注册失败用例，第%s条出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 注册失败用例，第23条出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>13</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_login_failde2_0_18732287863</td>
+                    <td>这是登录失败的用例 [with username='18732287863', pwd='123456', qiwang='此手机号未注册', xuhao='33']</td>
+                    <td>31.4s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_login_failde2_0_18732287863 (login_text.LoginText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>14</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_login_failde2_1_</td>
+                    <td>这是登录失败的用例 [with username='', pwd='123456', qiwang='请输入手机号', xuhao='34']</td>
+                    <td>31.5s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_login_failde2_1_ (login_text.LoginText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>15</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_login_failde2_2_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', pwd='123', qiwang='验证码无效', xuhao='35']</td>
+                    <td>10.1s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_login_failde2_2_18700000000 (login_text.LoginText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>16</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_login_failde2_3_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', pwd='', qiwang='请输入验证码', xuhao='36']</td>
+                    <td>10.2s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_login_failde2_3_18700000000 (login_text.LoginText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>17</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_login_failde2_4_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', pwd='123456', qiwang='手机号或密码错误', xuhao='31']</td>
+                    <td>42.1s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_login_failde2_4_18700000000 (login_text.LoginText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 31, in failed_login
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 34, in failed_login
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 130, in test_login_failde2
+    faillog=self.logintext.failed_login()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 36, in failed_login
+    return self.text('x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div')
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 139, in test_login_failde2
+    raise AssertionError('登录失败用例，第%s条出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 登录失败用例，第31条出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>18</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_login_failde2_5_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', pwd='123456', qiwang='手机号或密码错误', xuhao='31']</td>
+                    <td>42.0s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_login_failde2_5_18700000000 (login_text.LoginText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 31, in failed_login
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 34, in failed_login
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 130, in test_login_failde2
+    faillog=self.logintext.failed_login()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 36, in failed_login
+    return self.text('x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div')
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 139, in test_login_failde2
+    raise AssertionError('登录失败用例，第%s条出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 登录失败用例，第31条出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>19</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_login_failde_0_18732287863</td>
+                    <td>这是登录失败的用例 [with username='18732287863', pwd='liu123456', qiwang='此手机号未注册', xuhao='29']</td>
+                    <td>44.1s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_login_failde_0_18732287863 (login_text.LoginText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 31, in failed_login
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 34, in failed_login
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 98, in test_login_failde
+    faillog=self.logintext.failed_login()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 36, in failed_login
+    return self.text('x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div')
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 107, in test_login_failde
+    raise AssertionError('登录失败用例，第%s条出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 登录失败用例，第29条出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>20</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_login_failde_1_</td>
+                    <td>这是登录失败的用例 [with username='', pwd='liu123456', qiwang='请输入验证码', xuhao='30']</td>
+                    <td>33.6s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_login_failde_1_ (login_text.LoginText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 100, in test_login_failde
+    self.assertEqual(faillog,qiwang,'实际结果与预期结果不一致')
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 839, in assertEqual
+    assertion_func(first, second, msg=msg)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 1220, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 680, in fail
+    raise self.failureException(msg)
+</pre>
+                        
+
+                            <pre>AssertionError: '请输入手机号' != '请输入验证码'
+- 请输入手机号
++ 请输入验证码
+ : 实际结果与预期结果不一致
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 107, in test_login_failde
+    raise AssertionError('登录失败用例，第%s条出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 登录失败用例，第30条出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>21</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_login_failde_2_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', pwd='123456', qiwang='手机号或密码错误', xuhao='31']</td>
+                    <td>12.1s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_login_failde_2_18700000000 (login_text.LoginText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>22</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_login_secceed_0_18700000000</td>
+                    <td>这是登录成功的用例 [with username='18700000000', pwd='liu123456', qiwang='新建', xuhao='27']</td>
+                    <td>22.8s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_login_secceed_0_18700000000 (login_text.LoginText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 67, in test_login_secceed
+    realname=self.logintext.secceed_realname()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 23, in secceed_realname
+    return self.text('x,/html/body/app-root/layout-basic/div/div[2]/div[1]/div[1]/div[1]/div[2]')
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 76, in test_login_secceed
+    raise AssertionError('登录成功用例，第%s条出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 登录成功用例，第27条出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>23</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_reset_pwd_00_18732287863</td>
+                    <td>这是登录失败的用例 [with username='18732287863', yanzheng='123456', pwd='liu123456', qiwang='此手机号未注册', xuhao='46']</td>
+                    <td>12.1s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_reset_pwd_00_18732287863 (login_text.LoginText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>24</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_reset_pwd_01_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', yanzheng='123', pwd='liu123456', qiwang='验证码无效', xuhao='47']</td>
+                    <td>20.8s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_reset_pwd_01_18700000000 (login_text.LoginText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>25</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_reset_pwd_02_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', yanzheng='123456', pwd='liu123456', qiwang='请输入验证码', xuhao='50']</td>
+                    <td>42.2s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_reset_pwd_02_18700000000 (login_text.LoginText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 48, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 51, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 163, in test_reset_pwd
+    faillog=self.logintext.failed_reset()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 53, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[3]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 172, in test_reset_pwd
+    raise AssertionError('第%s条用例出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 第50条用例出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>26</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_reset_pwd_03_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', yanzheng='123', pwd='liu123456', qiwang='验证码无效', xuhao='51']</td>
+                    <td>20.9s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_reset_pwd_03_18700000000 (login_text.LoginText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>27</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_reset_pwd_04_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', yanzheng='', pwd='liu123456', qiwang='请输入验证码', xuhao='52']</td>
+                    <td>21.1s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_reset_pwd_04_18700000000 (login_text.LoginText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>28</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_reset_pwd_05_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', yanzheng='', pwd='12345678', qiwang='密码须由8-15位字母与数字组成', xuhao='53']</td>
+                    <td>21.1s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_reset_pwd_05_18700000000 (login_text.LoginText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 165, in test_reset_pwd
+    self.assertEqual(faillog,qiwang,'实际结果与预期结果不一致')
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 839, in assertEqual
+    assertion_func(first, second, msg=msg)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 1220, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 680, in fail
+    raise self.failureException(msg)
+</pre>
+                        
+
+                            <pre>AssertionError: '请输入验证码' != '密码须由8-15位字母与数字组成'
+- 请输入验证码
++ 密码须由8-15位字母与数字组成
+ : 实际结果与预期结果不一致
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 172, in test_reset_pwd
+    raise AssertionError('第%s条用例出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 第53条用例出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>29</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_reset_pwd_06_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', yanzheng='123456', pwd='abcdefgh', qiwang='密码须由8-15位字母与数字组成', xuhao='54']</td>
+                    <td>42.3s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_reset_pwd_06_18700000000 (login_text.LoginText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 48, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 51, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 163, in test_reset_pwd
+    faillog=self.logintext.failed_reset()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 53, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[3]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 172, in test_reset_pwd
+    raise AssertionError('第%s条用例出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 第54条用例出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>30</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_reset_pwd_07_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', yanzheng='123456', pwd='ABCDEFGHIJ', qiwang='密码须由8-15位字母与数字组成', xuhao='55']</td>
+                    <td>42.4s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_reset_pwd_07_18700000000 (login_text.LoginText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 48, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 51, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 163, in test_reset_pwd
+    faillog=self.logintext.failed_reset()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 53, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[3]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 172, in test_reset_pwd
+    raise AssertionError('第%s条用例出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 第55条用例出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>31</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_reset_pwd_08_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', yanzheng='123456', pwd='ABCDEfghij', qiwang='密码须由8-15位字母与数字组成', xuhao='56']</td>
+                    <td>42.3s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_reset_pwd_08_18700000000 (login_text.LoginText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 48, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 51, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 163, in test_reset_pwd
+    faillog=self.logintext.failed_reset()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 53, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[3]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 172, in test_reset_pwd
+    raise AssertionError('第%s条用例出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 第56条用例出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>32</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_reset_pwd_09_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', yanzheng='123456', pwd='abc1234', qiwang='密码须由8-15位字母与数字组成', xuhao='57']</td>
+                    <td>31.7s</td>
+                    
+                        <td class="text-success">成功</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_reset_pwd_09_18700000000 (login_text.LoginText)执行——>【通过】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>33</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_reset_pwd_10_18700000000</td>
+                    <td>这是登录失败的用例 [with username='18700000000', yanzheng='123456', pwd='abcdefgh12345678', qiwang='密码须由8-15位字母与数字组成', xuhao='58']</td>
+                    <td>42.3s</td>
+                    
+                        <td class="text-danger">失败</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_reset_pwd_10_18700000000 (login_text.LoginText)执行——>【失败】
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 48, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 51, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 163, in test_reset_pwd
+    faillog=self.logintext.failed_reset()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\pages\xcool_login.py", line 53, in failed_reset
+    return self.text("x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[3]/nz-form-control/div[2]/div")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 116, in text
+    return self.locator_element(selector).get_attribute("textContent")
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\common\base.py", line 95, in locator_element
+    return WebDriverWait(self.driver,10).until(EC.presence_of_element_located(locator))
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+</pre>
+                        
+
+                            <pre>selenium.common.exceptions.TimeoutException: Message: 
+
+</pre>
+                        
+
+                            <pre>
+During handling of the above exception, another exception occurred:
+
+</pre>
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pythonAuto\xcool\case\login_text.py", line 172, in test_reset_pwd
+    raise AssertionError('第%s条用例出错'%xuhao)
+</pre>
+                        
+
+                            <pre>AssertionError: 第58条用例出错
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td>34</td>
+                    <td class="LoginText">LoginText</td>
+                    <td>test_login_secceed_0_18700000000</td>
+                    <td>这是页面跳转的用例 [with *None=('18700000000', 'liu123456', '新建', '27')]</td>
+                    <td>9.13s</td>
+                    
+                        <td class="text-warning">错误</td>
+                    
+                    <td>
+                        <button type="button" class="btn btn-success btn_info">查看详情</button>
+                    </td>
+                </tr>
+
+                <tr class="test_log">
+
+                    <td colspan="7" class="small text-muted" style=" word-wrap:break-word; word-break:break-all">
+                        
+
+                            <pre>Traceback (most recent call last):
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 59, in testPartExecutor
+    yield
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\unittest\case.py", line 615, in run
+    testMethod()
+</pre>
+                        
+
+                            <pre>  File "D:\ceshi\pycharm\lib\site-packages\parameterized\parameterized.py", line 533, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+</pre>
+                        
+
+                            <pre>TypeError: test_login_secceed() takes 1 positional argument but 5 were given
+</pre>
+                        
+
+                            <pre>**************************************************分割线**************************************************
+**************************************************分割线**************************************************
+test_login_secceed_0_18700000000 (page_test.LoginText)执行——>【错误Error】
+</pre>
+                        
+                        
+                    </td>
+                </tr>
+            
+
+            </tbody>
+        </table>
+    </div>
+
+    <div style="height: 200px"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+
+<script>
+    var tbodyTr = $('tbody tr');
+    var testResult = $("#testResult");
+    var testClass = $("#testClass");
+    <!--    用例执行详细信息显示切换-->
+    $(".btn_info").click(function () {
+        $(this).parent().parent().next().toggle();
+
+    });
+    // 当选择用例类之后触发
+    testClass.change(function () {
+        var cls = $(this).val();
+        var res = testResult.val();
+        elementDisplay(cls, res);
+        sort()
+    });
+    testResult.change(function () {
+        var res = $(this).val();
+        var cls = testClass.val();
+        elementDisplay(cls, res);
+        sort()
+    });
+
+    function elementDisplay(cls, res) {
+        // 用例数据的显示
+        if (cls === "所有") {
+            if (res === "所有") {
+                tbodyTr.has('button').show();
+            } else if (res === '成功') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.text-success').show()
+
+            } else if (res === '失败') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.text-danger').show()
+
+            } else if (res === '错误') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.text-warning').show()
+
+            } else if (res === '跳过') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.text-info').show()
+            }
+        } else {
+            if (res === "所有") {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.' + cls + '').show()
+            } else if (res === '成功') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.' + cls + '').has('.text-success').show()
+            } else if (res === '失败') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.' + cls + '').has('.text-danger').show()
+            } else if (res === '错误') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.' + cls + '').has('.text-warning').show()
+            } else if (res === '跳过') {
+                tbodyTr.hide();
+                tbodyTr.has('button').has('.' + cls + '').has('.text-info').show()
+            }
+        }
+    }
+
+    function sort() {
+        //重新排列显示序号
+        // 选择所有可以见的tr
+        var visibleTr = tbodyTr.filter(":visible");
+
+        visibleTr.each(function (index, element) {
+            element.firstElementChild.innerHTML = index + 1;
+
+        })
+
+    }
+
+
+</script>
+
+<script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('char'));
+    var myChart2 = echarts.init(document.getElementById('char2'));
+    // 指定图表的配置项和数据
+    option = {
+        color: ['#00a10a', '#ddb518', 'rgba(204,46,41,0.73)', '#85898c'],
+        tooltip: {
+            trigger: 'item',
+            formatter: '{a} <br/>{b}: {c} ({d}%)'
+        },
+        legend: {
+            orient: 'vertical',
+            left: 10,
+            data: ['通过', '失败', '错误', '跳过']
+        },
+        series: [
+            {
+                name: '测试结果',
+                type: 'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    {value: 17, name: '通过'},
+                    {value: 16, name: '失败'},
+                    {value: 1, name: '错误'},
+                    {value: 0, name: '跳过'}
+                ]
+            }
+        ]
+    };
+    option2 = {
+        tooltip: {
+            formatter: '{a} <br/>{b} : {c}%'
+        },
+        toolbox: {
+            feature: {
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        series: [
+            {
+                name: '测试结果',
+                type: 'gauge',
+                detail: {formatter: '50.00%'},
+                data: [{value: '50.00', name: '用例通过率'}],
+                axisLine: {
+                    lineStyle: {
+                        color: [
+                            [0.2, '#c20000'],
+                            [0.8, '#ddb518'],
+                            [1, '#00a10a']]
+                    }
+                }
+            }
+        ]
+    };
+
+
+    myChart2.setOption(option2);
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+</script>
+
+
+</body>
+</html>

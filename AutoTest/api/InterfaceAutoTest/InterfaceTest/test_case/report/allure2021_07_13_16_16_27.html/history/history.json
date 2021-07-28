@@ -1,0 +1,233 @@
+{
+  "e998d3f439603c4a5c0f4ce9d5760633" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "b75f12c0b5fe00b0",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert ({'details': '...tusCode': 500} == {'componentUR...2}, ...}, ...}\n  Left contains 3 more items:\n  {'details': 'Nancy.RequestExecutionException: Oh noes! ---> '\n              'Newtonsoft.Json.JsonReaderException: Unexpected character '\n              \"encountered while parsing value: v. Path '', line 0, position \"\n              '0.\\r\\n'\n              '   在 Newtonsoft.Json.JsonTextReader.ParseValue()\\r\\n'\n              '   在 Newtonsoft.Json.JsonReader.ReadForType(JsonContract '...\n  \n  ...Full output truncated (1122 lines hidden), use '-vv' to show)",
+      "time" : {
+        "start" : 1626164193127,
+        "stop" : 1626164193495,
+        "duration" : 368
+      }
+    } ]
+  },
+  "e0f88dd0086657fe55f6595cf3630e3a" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "be01641ecdb50146",
+      "status" : "passed",
+      "time" : {
+        "start" : 1626164191217,
+        "stop" : 1626164191301,
+        "duration" : 84
+      }
+    } ]
+  },
+  "73a533902191d764f31b867e1332a857" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "ec1f676bf1b78221",
+      "status" : "passed",
+      "time" : {
+        "start" : 1626164192932,
+        "stop" : 1626164193083,
+        "duration" : 151
+      }
+    } ]
+  },
+  "1fafb575faf5fb4243da0129142928a1" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "138d60d2785d9cbb",
+      "status" : "passed",
+      "time" : {
+        "start" : 1626164192317,
+        "stop" : 1626164192764,
+        "duration" : 447
+      }
+    } ]
+  },
+  "73ee07a25f38a6753887e6c65f15c6d2" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "b91cb46b451acda3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1626164192787,
+        "stop" : 1626164192927,
+        "duration" : 140
+      }
+    } ]
+  },
+  "2e947f4ab35035fe970a07f2573658d7" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "df1e97869c9f74bb",
+      "status" : "passed",
+      "time" : {
+        "start" : 1626164191689,
+        "stop" : 1626164191767,
+        "duration" : 78
+      }
+    } ]
+  },
+  "ddc3704e582c1f3af90baa4cd57af540" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "c95b487e6550d484",
+      "status" : "passed",
+      "time" : {
+        "start" : 1626164192216,
+        "stop" : 1626164192305,
+        "duration" : 89
+      }
+    } ]
+  },
+  "7bdafd3713d11c7e0345b8257e703c77" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "7fac14db4053588a",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert 500 == 200",
+      "time" : {
+        "start" : 1626164191931,
+        "stop" : 1626164191990,
+        "duration" : 59
+      }
+    } ]
+  },
+  "aad27b9b6e1c271a6c9269a756ce3495" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "8bec48542700c847",
+      "status" : "passed",
+      "time" : {
+        "start" : 1626164191307,
+        "stop" : 1626164191352,
+        "duration" : 45
+      }
+    } ]
+  },
+  "c09e29443a5ead8d0f68bf041fdcf971" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "b1c9e5662f202d93",
+      "status" : "passed",
+      "time" : {
+        "start" : 1626164191357,
+        "stop" : 1626164191682,
+        "duration" : 325
+      }
+    } ]
+  },
+  "7166a816f99386905472a6f547218032" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "f7650a4237e49121",
+      "status" : "failed",
+      "statusDetails" : "AssertionError: assert ({'code': '201..., 'status': 0} == {'code': '100..., 'status': 1}\n  Omitting 1 identical items, use -vv to show\n  Differing items:\n  {'code': '20110'} != {'code': '10001'}\n  {'msg': '手机号码已被注册'} != {'msg': '注册成功'}\n  {'status': 0} != {'status': 1}\n  Use -v to get the full diff)",
+      "time" : {
+        "start" : 1626164192077,
+        "stop" : 1626164192208,
+        "duration" : 131
+      }
+    } ]
+  },
+  "304992fe59a9775d6ea0beb4f8fa51e4" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "75fa380239fe996a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1626164191774,
+        "stop" : 1626164191889,
+        "duration" : 115
+      }
+    } ]
+  }
+}

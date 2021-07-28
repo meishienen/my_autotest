@@ -1,0 +1,104 @@
+{
+  "uid" : "b91cb46b451acda3",
+  "name" : "test_all[TC004-GET-http://compute.xcool.site2e.cn/version-None-expect3-JSON-5]",
+  "fullName" : "cases_pytest_test.TestPyttest#test_all",
+  "historyId" : "73ee07a25f38a6753887e6c65f15c6d2",
+  "time" : {
+    "start" : 1626164192787,
+    "stop" : 1626164192927,
+    "duration" : 140
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "get_request_20",
+    "time" : {
+      "start" : 1626164192064,
+      "stop" : 1626164192077,
+      "duration" : 13
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "afterStages" : [ {
+    "name" : "get_request_20::0",
+    "time" : {
+      "start" : 1626164193501,
+      "stop" : 1626164193501,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "cases_pytest_test"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPyttest"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-QM1JAUSG"
+  }, {
+    "name" : "thread",
+    "value" : "33752-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "cases_pytest_test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_type",
+    "value" : "'JSON'"
+  }, {
+    "name" : "expect",
+    "value" : "{'rhino': '7.7.21160.5001', 'compute': '1.0.0.0', 'git_sha': None, 'artVersion': '0.0.2'}"
+  }, {
+    "name" : "id",
+    "value" : "'TC004'"
+  }, {
+    "name" : "method",
+    "value" : "'GET'"
+  }, {
+    "name" : "precondition_id",
+    "value" : "None"
+  }, {
+    "name" : "row",
+    "value" : "5"
+  }, {
+    "name" : "url",
+    "value" : "'http://compute.xcool.site2e.cn/version'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b91cb46b451acda3.json",
+  "parameterValues" : [ "'JSON'", "{'rhino': '7.7.21160.5001', 'compute': '1.0.0.0', 'git_sha': None, 'artVersion': '0.0.2'}", "'TC004'", "'GET'", "None", "5", "'http://compute.xcool.site2e.cn/version'" ]
+}

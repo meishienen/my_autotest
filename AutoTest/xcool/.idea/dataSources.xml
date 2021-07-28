@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="xcool" uuid="25fdbae1-4e46-463d-88d2-c70a5733694d">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://pgm-bp11809g9a85h74gko.pg.rds.aliyuncs.com:1921/postgres</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="myaql" uuid="2152fc44-8c2a-4e1f-a2a0-93263bddd844">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://47.118.84.6:3306</jdbc-url>
+    </data-source>
+  </component>
+</project>

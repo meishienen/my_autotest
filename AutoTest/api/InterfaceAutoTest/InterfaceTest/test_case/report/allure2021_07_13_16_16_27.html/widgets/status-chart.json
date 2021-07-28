@@ -1,0 +1,121 @@
+[ {
+  "uid" : "be01641ecdb50146",
+  "name" : "test_all[TC001-POST-http://106.13.199.209:8080/futureloan/mvc/api/member/register-None-expect0-JSON-2]",
+  "time" : {
+    "start" : 1626164191217,
+    "stop" : 1626164191301,
+    "duration" : 84
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "75fa380239fe996a",
+  "name" : "test_all[TC005-GET-http://fe-dev.xcool.site2e.cn/-None-<title>XcoolFe</title>-HTML-6]",
+  "time" : {
+    "start" : 1626164191774,
+    "stop" : 1626164191889,
+    "duration" : 115
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7fac14db4053588a",
+  "name" : "test_all[TC006-POST-http://compute.xcool.site2e.cn/art/uniteditor3dcreateonebed-None-expect5-JSON-7]",
+  "time" : {
+    "start" : 1626164191931,
+    "stop" : 1626164191990,
+    "duration" : 59
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "b1c9e5662f202d93",
+  "name" : "test_all[TC003-GET-https://www.baidu.com-None-<title>百度一下，你就知道</title>-HTML-4]",
+  "time" : {
+    "start" : 1626164191357,
+    "stop" : 1626164191682,
+    "duration" : 325
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b75f12c0b5fe00b0",
+  "name" : "test_all[TC006-POST-http://compute.xcool.site2e.cn/art/uniteditor3dcreateonebed-None-expect5-JSON-7]",
+  "time" : {
+    "start" : 1626164193127,
+    "stop" : 1626164193495,
+    "duration" : 368
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "ec1f676bf1b78221",
+  "name" : "test_all[TC005-GET-http://fe-dev.xcool.site2e.cn/-None-<title>XcoolFe</title>-HTML-6]",
+  "time" : {
+    "start" : 1626164192932,
+    "stop" : 1626164193083,
+    "duration" : 151
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "138d60d2785d9cbb",
+  "name" : "test_all[TC003-GET-https://www.baidu.com-None-<title>百度一下，你就知道</title>-HTML-4]",
+  "time" : {
+    "start" : 1626164192317,
+    "stop" : 1626164192764,
+    "duration" : 447
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c95b487e6550d484",
+  "name" : "test_all[TC002-GET-http://106.13.199.209:8080/futureloan/mvc/api/member/register-None-expect1-JSON-3]",
+  "time" : {
+    "start" : 1626164192216,
+    "stop" : 1626164192305,
+    "duration" : 89
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b91cb46b451acda3",
+  "name" : "test_all[TC004-GET-http://compute.xcool.site2e.cn/version-None-expect3-JSON-5]",
+  "time" : {
+    "start" : 1626164192787,
+    "stop" : 1626164192927,
+    "duration" : 140
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f7650a4237e49121",
+  "name" : "test_all[TC001-POST-http://106.13.199.209:8080/futureloan/mvc/api/member/register-None-expect0-JSON-2]",
+  "time" : {
+    "start" : 1626164192077,
+    "stop" : 1626164192208,
+    "duration" : 131
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "df1e97869c9f74bb",
+  "name" : "test_all[TC004-GET-http://compute.xcool.site2e.cn/version-None-expect3-JSON-5]",
+  "time" : {
+    "start" : 1626164191689,
+    "stop" : 1626164191767,
+    "duration" : 78
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8bec48542700c847",
+  "name" : "test_all[TC002-GET-http://106.13.199.209:8080/futureloan/mvc/api/member/register-None-expect1-JSON-3]",
+  "time" : {
+    "start" : 1626164191307,
+    "stop" : 1626164191352,
+    "duration" : 45
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

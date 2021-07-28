@@ -1,0 +1,8 @@
+{
+  "RegisterSuccess":{"mobilephone":"13563778809","pwd":"123456","regname":"tony"},
+  "RegisterFailed":{"mobilephone":"13566778899","pwd":"123456","regname":"tony"},
+  "KoreiLoginSuccess":{"username":"admin","password":1},
+  "KoreiAddStuSuccess": {"creator": "", "name": "test101302", "sex": "0", "birthday": "2020-08-30", "important": "0", "source": "1", "sourceId": "10000019071915", "sourceName": "超级大优惠", "region": "", "province": "", "city": "", "Area": "", "marketstaffName": "", "marketstaffId": "", "allograph": "", "wechat": "", "mobile": "", "ndTelephone": "", "qq": "", "email": "", "address": "", "comment": "", "studentId": "", "salerId": "", "status": "", "parent.name": "", "parent.parentId": "", "parent.createTime": "", "parent.creator": "", "parent.relation": "", "parent.phone": "13577778871", "parent.qq": "", "parent.wechat": "", "parent.email": "", "parent.ndTelephone": "", "parent.telephone": "", "parent.address": ""},
+  "WebToursLoginSuccess": {"username":"jojo","password":"bean"},
+  "demo3":{"version":10000,"archive3dm":60,"opennurbs":-1910998424,"data":"+n8CAOkAAAAAAAAA+/8CABQAAAAAAAAA5tTXTkfp0xG/5QAQgwEi8E6cu9v8/wIAsQAAAAAAAAAQBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHMAAAAAAAAAAAAAAAAAAABxAAAAAAAAAHMAAAAAAAAAAAAAAAAAAABxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAPA/AAAAAAAAAEAAAAAAAAAIQAAAAAAAABBAAwAAAE3rgOj/fwKAAAAAAAAAAAA="}
+}

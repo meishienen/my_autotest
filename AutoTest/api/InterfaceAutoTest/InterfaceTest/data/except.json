@@ -1,0 +1,10 @@
+{
+  "RegisterSuccess": {"status": 1, "code": "10001", "data": null, "msg": "注册成功"},
+  "RegisterFailed":{"status": 0, "code": "20110", "data": null, "msg": "手机号码已被注册"},
+  "BaiduSuccess": "<title>百度一下，你就知道</title>",
+  "KoreiLoginSuccess":"退出",
+  "KoreiAddStuSuccess": {"cause":"","message":"保存成功","result":1},
+  "WebToursLoginSuccess": "<b>jojo</b>",
+  "XcoolSuccess": {"rhino":"7.7.21160.5001","compute":"1.0.0.0","git_sha":null,"artVersion":"0.0.2"},
+  "Xcool2Success": "<title>XcoolFe</title>",
+}

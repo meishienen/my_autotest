@@ -1,0 +1,110 @@
+{
+  "uid" : "f7650a4237e49121",
+  "name" : "test_all[TC001-POST-http://106.13.199.209:8080/futureloan/mvc/api/member/register-None-expect0-JSON-2]",
+  "fullName" : "cases_pytest_test.TestPyttest#test_all",
+  "historyId" : "7166a816f99386905472a6f547218032",
+  "time" : {
+    "start" : 1626164192077,
+    "stop" : 1626164192208,
+    "duration" : 131
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert ({'code': '201..., 'status': 0} == {'code': '100..., 'status': 1}\n  Omitting 1 identical items, use -vv to show\n  Differing items:\n  {'code': '20110'} != {'code': '10001'}\n  {'msg': '手机号码已被注册'} != {'msg': '注册成功'}\n  {'status': 0} != {'status': 1}\n  Use -v to get the full diff)",
+  "statusTrace" : "self = <InterfaceTest.test_case.cases_pytest_test.TestPyttest object at 0x00000206CFC19CC0>\nget_request_20 = (<InterfaceTest.common.read_excel.ReadExcel object at 0x00000206CFC335F8>, <InterfaceTest.requst_method.request_method.RequestMethod object at 0x00000206CFBD5128>)\nid = 'TC001', method = 'POST'\nurl = 'http://106.13.199.209:8080/futureloan/mvc/api/member/register'\nprecondition_id = None\nexpect = {'code': '10001', 'data': None, 'msg': '注册成功', 'status': 1}\ncase_type = 'JSON', row = 2\n\n    @pytest.mark.parametrize(\"id,method,url,precondition_id,expect,case_type,row\",data_gat())\n    def test_all(self,get_request_20,id,method,url,precondition_id,expect,case_type,row):\n        #获取请求参数，有两种场景：有数据关联和没有数据关联两种。\n        if precondition_id:\n            params=get_request_20[1].get_updated_params(row)\n        else:\n            params=get_request_20[0].get_case_params_value(row)\n        #指定用例，获取实际结果\n        actual = get_request_20[1].get_actual_result(method, url,row,params)\n        actual2 = get_request_20[1].get_status_code(method, url,params)\n    \n        #断言\n        if expect:\n            if case_type==\"JSON\":\n>               assert actual==expect and actual2==200\nE               AssertionError: assert ({'code': '201..., 'status': 0} == {'code': '100..., 'status': 1}\nE                 Omitting 1 identical items, use -vv to show\nE                 Differing items:\nE                 {'code': '20110'} != {'code': '10001'}\nE                 {'msg': '手机号码已被注册'} != {'msg': '注册成功'}\nE                 {'status': 0} != {'status': 1}\nE                 Use -v to get the full diff)\n\ncases_pytest_test.py:43: AssertionError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "get_request_20",
+    "time" : {
+      "start" : 1626164192064,
+      "stop" : 1626164192077,
+      "duration" : 13
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "afterStages" : [ {
+    "name" : "get_request_20::0",
+    "time" : {
+      "start" : 1626164193501,
+      "stop" : 1626164193501,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "cases_pytest_test"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPyttest"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-QM1JAUSG"
+  }, {
+    "name" : "thread",
+    "value" : "33752-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "cases_pytest_test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_type",
+    "value" : "'JSON'"
+  }, {
+    "name" : "expect",
+    "value" : "{'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}"
+  }, {
+    "name" : "id",
+    "value" : "'TC001'"
+  }, {
+    "name" : "method",
+    "value" : "'POST'"
+  }, {
+    "name" : "precondition_id",
+    "value" : "None"
+  }, {
+    "name" : "row",
+    "value" : "2"
+  }, {
+    "name" : "url",
+    "value" : "'http://106.13.199.209:8080/futureloan/mvc/api/member/register'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "f7650a4237e49121.json",
+  "parameterValues" : [ "'JSON'", "{'status': 1, 'code': '10001', 'data': None, 'msg': '注册成功'}", "'TC001'", "'POST'", "None", "2", "'http://106.13.199.209:8080/futureloan/mvc/api/member/register'" ]
+}

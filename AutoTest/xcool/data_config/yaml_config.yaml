@@ -1,0 +1,57 @@
+Browser:
+  BROWSER1: 'Chrome'
+  URL1: 'http://fe-dev.xtect.site2e.cn/'
+LoginPage:
+  USERNAME : 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[1]/nz-form-control/div/div/input'
+  PASSWORD : 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[2]/nz-form-control/div/div/nz-input-group/input'
+  LOGIN : 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/div[1]/button/span'
+  PHONELOGIN : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/div[2]/div[2]/a"
+  PHONE : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[1]/nz-form-control/div/div/input"
+  PHONEPWD : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[2]/nz-form-control/div/div/div/div[1]/input"
+  PHONELOGING : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/div[1]/button"
+ReletPwd :
+  RELETPWD : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/div/a"
+  PELET : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/div/button/span"
+  PHONE : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[1]/nz-form-control/div[1]/div/input"
+  YANZHENG : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[2]/nz-form-control/div[1]/div/div/div[1]/input"
+  PWD : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[3]/nz-form-control/div[1]/div/input"
+PageSkip:
+  PHONEYANZHENG : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/div[2]/div[2]/a"
+  PWDLOGIN : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/div[2]/div[2]/a"
+  SKIPRELET : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/div/a"
+  RELETLOGIN : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[1]/div[2]/a"
+  SKIPADDUSER : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[1]/div[2]/a"
+  SKIPLOGIN : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[1]/div[2]/a"
+  SKIPADDUSERXIYI : "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/div[2]/div[2]/a"
+
+
+AddUser:
+  ADDUSER : 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[1]/div[2]/a'
+  USERNAME: 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[1]/nz-form-control/div[1]/div/input'
+  YANZHENG: 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[2]/nz-form-control/div/div/div/div[1]/input'
+  PWD: 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[3]/nz-form-control/div/div/input'
+  STARTADDUSER: 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/div[1]/button'
+  SEXWUMAN: 'x,//*[@id="genderf"]'
+  BUMEN : 'i,dept'
+  JUESE1: 'i,role'
+  JUESE2: 't,option'
+  USERPWD1: 'x,//*[@id="password1"]'
+  USERPWD2: 'x,//*[@id="password2"]'
+  EMAIL: 'x,//*[@id="email"]'
+  BAOCUN: 'x,//*[@id="submit"]'
+  EYSHU : 'i,_pageID'
+  YETIAOZHUAN: 'i,goto'
+  DELDOWN: 's,body > div > div > div > div.col-md-10 > div > div > table > tbody > tr:last-child > td.operate > a.deleter'
+  USERADD: 'x,/html/body/div/div/div/div[1]/div/div[2]/a[1]'
+
+DuanYan:
+  LOGINSECCEED: 'x,/html/body/app-root/layout-basic/div/div[2]/div[1]/div[1]/div[1]/div[2]'
+  LOGINFAILED1: "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div"
+  LOGINFAILED2: "x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div"
+  LOGINFAILED3: 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-login/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div'
+  ADDUSERFAILED1: 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div'
+  ADDUSERFAILED2: 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div'
+  ADDUSERFAILED3: 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/passport-register/div/div[2]/form/nz-form-item[3]/nz-form-control/div[2]/div'
+  RELETPWDFAILED1: 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[1]/nz-form-control/div[2]/div'
+  RELETPWDFAILED2: 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[2]/nz-form-control/div[2]/div'
+  RELETPWDFAILED3: 'x,/html/body/app-root/layout-passport/div/div[2]/div[2]/app-reset-password/div/div[2]/form/nz-form-item[3]/nz-form-control/div[2]/div'

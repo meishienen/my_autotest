@@ -1,0 +1,104 @@
+{
+  "uid" : "ec1f676bf1b78221",
+  "name" : "test_all[TC005-GET-http://fe-dev.xcool.site2e.cn/-None-<title>XcoolFe</title>-HTML-6]",
+  "fullName" : "cases_pytest_test.TestPyttest#test_all",
+  "historyId" : "73a533902191d764f31b867e1332a857",
+  "time" : {
+    "start" : 1626164192932,
+    "stop" : 1626164193083,
+    "duration" : 151
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "get_request_20",
+    "time" : {
+      "start" : 1626164192064,
+      "stop" : 1626164192077,
+      "duration" : 13
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "afterStages" : [ {
+    "name" : "get_request_20::0",
+    "time" : {
+      "start" : 1626164193501,
+      "stop" : 1626164193501,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "hasContent" : false,
+    "stepsCount" : 0
+  } ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "cases_pytest_test"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestPyttest"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-QM1JAUSG"
+  }, {
+    "name" : "thread",
+    "value" : "33752-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "cases_pytest_test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "case_type",
+    "value" : "'HTML'"
+  }, {
+    "name" : "expect",
+    "value" : "'<title>XcoolFe</title>'"
+  }, {
+    "name" : "id",
+    "value" : "'TC005'"
+  }, {
+    "name" : "method",
+    "value" : "'GET'"
+  }, {
+    "name" : "precondition_id",
+    "value" : "None"
+  }, {
+    "name" : "row",
+    "value" : "6"
+  }, {
+    "name" : "url",
+    "value" : "'http://fe-dev.xcool.site2e.cn/'"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ec1f676bf1b78221.json",
+  "parameterValues" : [ "'HTML'", "'<title>XcoolFe</title>'", "'TC005'", "'GET'", "None", "6", "'http://fe-dev.xcool.site2e.cn/'" ]
+}
